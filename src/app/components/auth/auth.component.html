@@ -1,0 +1,125 @@
+<div *ngIf="isLogin">
+  <div mat-dialog-content>
+    <form (ngSubmit)="submit()" [formGroup]="signInForm" #formDir="ngForm">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          class="input"
+          type="email"
+          name="email"
+          id="email"
+          required
+          placeholder="exemplo@exemplo.com"
+          formControlName="emailSignIn"
+        />
+      </div>
+      <div *ngIf="emailSignIn.invalid && formDir.submitted">
+        <p class="error-message">O E-mail é obrigatório</p>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          class="input"
+          type="password"
+          name="password"
+          id="password"
+          required
+          placeholder="********"
+          formControlName="passwordSignIn"
+          />
+        </div>
+        <div *ngIf="passwordSignIn.invalid && formDir.submitted">
+          <p class="error-message">A senha é obrigatória</p>
+        </div>
+      <input type="submit" value="Entrar" class="button">
+    </form>
+    <p class="text-footer">Não tem uma conta? <span (click)="showForm()">faça seu cadastro</span></p>
+  </div>
+</div>
+<div *ngIf="!isLogin">
+  <div mat-dialog-content>
+    <form (ngSubmit)="signUp()" [formGroup]="signUpForm" #formDir="ngForm">
+      <div class="form-group">
+        <label for="name">Nome completo</label>
+        <input
+        class="input"
+        type="name"
+        name="name"
+        id="name"
+        required
+        placeholder="Ana da Silva"
+        formControlName="name"
+        />
+      </div>
+      <div *ngIf="name.invalid && formDir.submitted">
+        <p class="error-message" *ngIf="name.errors?.['required']">O nome é obrigatório</p>
+        <p class="error-message" *ngIf="name.errors?.['min']">Informe um nome válido</p>
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input
+          class="input"
+          type="cpf"
+          name="cpf"
+          id="cpf"
+          required
+          placeholder="123.456.789-10"
+          formControlName="cpf"
+        />
+      </div>
+      <div *ngIf="cpf.invalid && formDir.submitted">
+        <p class="error-message" *ngIf="cpf.errors?.['required']">O CPF é obrigatório</p>
+      </div>
+      <div class="form-group">
+          <label for="phone">Telefone</label>
+          <input
+          class="input"
+          type="phone"
+          name="phone"
+          id="phone"
+          required
+          maxlength="11"
+          placeholder="120345-6789"
+          formControlName="phone"
+        />
+      </div>
+      <div *ngIf="phone.invalid && formDir.submitted">
+        <p class="error-message" *ngIf="phone.errors?.['required']">O telefone é obrigatório</p>
+        <p class="error-message" *ngIf="phone.errors?.['min']">Telefone inválido</p>
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          class="input"
+          type="email"
+          name="email"
+          id="email"
+          required
+          placeholder="exemplo@exemplo.com"
+          formControlName="emailSignUp"
+        />
+      </div>
+      <div *ngIf="emailSignUp.invalid && formDir.submitted">
+        <p class="error-message" *ngIf="emailSignUp.errors?.['required']">O E-mail é obrigatório</p>
+        <p class="error-message" *ngIf="emailSignUp.errors?.['email']">E-mail inválido</p>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          class="input"
+          type="password"
+          name="password"
+          id="password"
+          required
+          placeholder="********"
+          formControlName="passwordSignUp"
+        />
+        </div>
+        <div *ngIf="passwordSignUp.invalid && formDir.submitted">
+          <p class="error-message" *ngIf="passwordSignUp.errors?.['required']">A senha é obrigatória</p>
+          <p class="error-message" *ngIf="passwordSignUp.errors?.['min']">Senha precisa conter, no mínimo, 8 caracteres</p>
+        </div>
+      <input type="submit" value="Entrar" class="button">
+    </form>
+  </div>
+</div>
