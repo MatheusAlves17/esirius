@@ -4,6 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from 'src/app/services/user.service';
 import { signIn } from 'src/app/models/SignIn';
 import { User } from 'src/app/models/User';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth',
@@ -24,7 +25,7 @@ export class AuthComponent {
   }
   signUpData: User = {
     name:'',
-    // cpf:'',
+    CPF:'',
     phone:'',
     email: '',
     password: '',
@@ -32,7 +33,9 @@ export class AuthComponent {
 
   constructor(
     public dialogRef: MatDialogRef<AuthComponent>,
-    public userService: UserService
+    public userService: UserService,
+    private router: Router,
+
   ){}
 
   ngOnInit(): void{
@@ -101,9 +104,10 @@ export class AuthComponent {
     else{
       this.signInData.email = value.emailSignIn
       this.signInData.password = value.passwordSignIn
-      await this.userService.signIn(this.signInData).subscribe((data) => {
-        console.log(`dados enviados!`);
+      await this.userService.signIn(this.signInData).subscribe((data: any) => {
+        console.log(`dados enviados! ${JSON.stringify(data)}`);
         localStorage.setItem('login', JSON.stringify(data))
+        this.router.navigate([`perfil/${data.user.id}`])
         this.cancel()
       },
       (err) => {
@@ -119,14 +123,15 @@ export class AuthComponent {
       return
     }else{
       this.signUpData.name = value.name;
-      // this.signUpData.cpf = value.cpf;
+      this.signUpData.CPF = value.cpf;
       this.signUpData.phone = value.phone;
       this.signUpData.email = value.emailSignUp;
       this.signUpData.password = value.passwordSignUp;
 
-      await this.userService.signUp(this.signUpData).subscribe((data) => {
+      await this.userService.signUp(this.signUpData).subscribe((data: any) => {
         console.log(`cadastro feito com sucesso!!`);
         localStorage.setItem('login', JSON.stringify(data));
+        this.router.navigate([`perfil/${data.user.id}`])
         this.cancel();
       },
       (err) => {

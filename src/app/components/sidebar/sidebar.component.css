@@ -1,0 +1,45 @@
+.sidebar-container{
+  width: 210px;
+  height: 89vh;
+  background: #f8f8f8;
+  overflow: hidden;
+  box-shadow: 0px 10px 12px rgba(30, 30, 30, 0.25);
+}
+
+ul{
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.nav-item{
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+.nav-item:hover{
+  background: #2ded70;
+  color: #F8F8F8;
+  transition: 0.8s;
+}
+.active{
+  background: #1ED760;
+  color: #F8F8F8;
+}
+
+
+.form-group{
+  margin: .75rem;
+}
+
+label{
+  margin: 0;
+  display: block;
+
+  font-size: 12px;
+  font-weight: 500;
+  color: #343434;
+}

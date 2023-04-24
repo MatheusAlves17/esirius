@@ -1,0 +1,58 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="col-one-of-two">
+    <img src="../../../assets/images/navbar/avatar-default.png" alt="">
+  </div>
+  <div class="col-two-of-two">
+    <form [formGroup]="editProfile" (ngSubmit)="update()" #formDir="ngForm">
+      <div class="form-group">
+        <label for="name">Nome completo</label>
+        <input
+          class="input"
+          type="text"
+          name="name"
+          id="name"
+          formControlName="name"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="cpf">CPF</label>
+        <input
+          class="input"
+          type="text"
+          name="cpf"
+          id="cpf"
+          formControlName="cpf"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefone</label>
+        <input
+          class="input"
+          type="text"
+          name="phone"
+          id="phone"
+          formControlName="phone"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          class="input"
+          type="email"
+          name="email"
+          id="email"
+          formControlName="email"
+          required
+        />
+      </div>
+      <div class="form-actions">
+        <!-- <input type="file" (change)="onFileSelect($event)" formControlName="image"/> -->
+        <input type="submit" value="Salvar" class="button">
+      </div>
+    </form>
+  </div>
+</div>

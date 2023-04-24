@@ -1,0 +1,19 @@
+.container,
+.form-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 40%;
+
+}
+
+.form-actions{
+  margin-right: 0;
+}
+.col-one-of-two{
+  margin: 0 10%
+}
+input[type="text"],
+input[type="email"]{
+  background: transparent;
+}

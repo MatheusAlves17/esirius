@@ -27,9 +27,15 @@ export class UserService {
     console.log(`user: ${JSON.stringify(signIn)}`);
     return this.http.post(`${this.apiUrl}`,signIn)
   }
+
   public signUp(signUp: User){
     console.log(`user: ${JSON.stringify(signUp)}`);
     return this.http.post(`http://142.93.6.205:4001/user/`,signUp)
+  }
+
+  public update(id: any, signUp: User){
+    console.log(`user: ${JSON.stringify(signUp)}`);
+    return this.http.put(`http://142.93.6.205:4001/user/${id}`,signUp)
   }
 
 }
