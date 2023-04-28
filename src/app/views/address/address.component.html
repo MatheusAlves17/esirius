@@ -1,0 +1,18 @@
+<div style="display: flex; overflow: hidden;">
+  <app-sidebar></app-sidebar>
+  <div class="col-one-of-two">
+    <div class="empty" *ngIf="!addresses">
+      <p>Você não tem nenhum endereço cadastrado ainda</p>
+      <button>Adicionar novo</button>
+
+    </div>
+
+    <div *ngIf="addresses">
+      <div class="card-container">
+        <div class="card-content">
+          <p class="address-title">item</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

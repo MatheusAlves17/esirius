@@ -14,6 +14,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddressComponent } from './views/address/address.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AuthComponent,
     ProfileComponent,
     SidebarComponent,
+    AddressComponent,
   ],
   imports: [
     BrowserModule,

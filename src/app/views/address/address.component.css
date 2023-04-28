@@ -1,0 +1,28 @@
+.col-one-of-two {
+  margin-left: 10%;
+}
+
+.card-container {
+  width: 16.688rem;
+  max-height: 6.25rem;
+
+  border-radius: 0.75rem;
+  padding: 0.75rem;
+
+  margin: 0.75rem 0;
+
+  background: #1ED760;
+}
+
+.address-title {
+  font-weight: 400;
+  font-size: 1rem;
+
+  text-align: center;
+
+  color: #F8F8F8;
+}
+
+.empty {
+  
+}
